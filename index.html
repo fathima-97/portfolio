@@ -112,7 +112,7 @@ STATS
 
         <div class="stat-card">
 
-            <h2>5+</h2>
+            <h2>6+</h2>
 
             <p>Projects Built</p>
 
@@ -334,47 +334,104 @@ PROJECTS
 
         </div>
 
+
+
         <!-- ===========================
-     BIKE SALES DASHBOARD
-     =========================== -->
+        BIKE SALES DASHBOARD
+        =========================== -->
 
-<div class="project-card">
+        <div class="project-card">
 
-    <img
-        src="media/BikeSales_Dashboard.png"
-        alt="Interactive Bike Sales Dashboard"
-    >
+            <img
+                src="media/BikeSales_Dashboard.png"
+                alt="Interactive Bike Sales Dashboard"
+            >
 
-    <div class="project-content">
+            <div class="project-content">
 
-        <h3>Interactive Bike Sales Dashboard</h3>
+                <h3>Interactive Bike Sales Dashboard</h3>
 
-        <p>
-            Interactive Excel dashboard analyzing yearly revenue,
-            country-level performance, product categories and
-            sales trends using dynamic data visualizations.
-        </p>
+                <p>
+                    Interactive Excel dashboard analyzing yearly revenue,
+                    country-level performance, product categories and
+                    sales trends using dynamic data visualizations.
+                </p>
 
-        <div class="tags">
+                <div class="tags">
 
-            <span>Excel</span>
-            <span>Pivot Tables</span>
-            <span>Pivot Charts</span>
-            <span>Slicers</span>
-            <span>KPI Cards</span>
+                    <span>Excel</span>
+                    <span>Pivot Tables</span>
+                    <span>Pivot Charts</span>
+                    <span>Slicers</span>
+                    <span>KPI Cards</span>
+
+                </div>
+
+                <button
+                    class="project-btn"
+                    onclick="openModal('bikeSales')"
+                >
+                    View Case Study →
+                </button>
+
+            </div>
 
         </div>
 
-        <button
-            class="project-btn"
-            onclick="openModal('bikeSales')"
-        >
-            View Case Study →
-        </button>
 
-    </div>
 
-</div>
+        <!-- ===========================
+        SQL: LAYOFFS DATA CLEANING & EDA
+        =========================== -->
+
+        <div class="project-card">
+
+            <!-- To add a screenshot later, uncomment this and set the file name
+            <img
+                src="media/layoffs_sql.png"
+                alt="Global Layoffs SQL Data Cleaning and Analysis"
+            >
+            -->
+
+            <div class="project-content">
+
+                <h3>Global Layoffs: SQL Data Cleaning & Analysis</h3>
+
+                <p>
+
+                    SQL project that cleans a raw layoffs dataset and
+                    analyzes it with CTEs, window functions and rolling
+                    totals to find trends by company, industry,
+                    country and year.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span>MySQL</span>
+                    <span>SQL</span>
+                    <span>CTEs</span>
+                    <span>Window Functions</span>
+                    <span>Data Cleaning</span>
+
+                </div>
+
+
+                <button
+                    class="project-btn"
+                    onclick="openModal('sqlLayoffsModal')"
+                >
+
+                    View Case Study →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
 
         <!-- ===========================
         BIG DATA
@@ -615,8 +672,6 @@ ELEVATEX MODAL
                 alt="ElevateX Dashboard"
             >
 
-            
-
         </div>
 
 
@@ -769,8 +824,10 @@ BOUTIQUE MODAL
 
 </div>
 
+
+
 <!-- ===========================
-BIKE SALES DASHBOARD
+BIKE SALES DASHBOARD MODAL
 =========================== -->
 
 <div class="modal" id="bikeSales">
@@ -905,6 +962,225 @@ BIKE SALES DASHBOARD
 
 </div>
 
+
+
+<!-- ===========================
+SQL LAYOFFS MODAL
+=========================== -->
+
+<div class="modal" id="sqlLayoffsModal">
+
+    <div class="modal-content">
+
+        <button
+            class="modal-close"
+            onclick="closeModal('sqlLayoffsModal')"
+        >
+            ×
+        </button>
+
+
+        <h2>Global Layoffs: SQL Data Cleaning & Analysis</h2>
+
+        <p class="modal-subtitle">
+            MySQL Data Cleaning & Exploratory Data Analysis Project
+        </p>
+
+
+        <div class="modal-section">
+
+            <h3>Overview</h3>
+
+            <p>
+
+                Completed as part of an SQL course, this project
+                takes a raw company layoffs dataset through two
+                stages. First I cleaned it into an analysis-ready
+                table, then I explored it to find which companies,
+                industries, countries and years were hit hardest.
+
+            </p>
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <h3>Part 1: Data Cleaning</h3>
+
+            <ul>
+
+                <li>
+                    Created a staging table and worked on a copy of
+                    the data, so the raw dataset stayed untouched.
+                </li>
+
+                <li>
+                    Removed duplicates using ROW_NUMBER() with
+                    PARTITION BY inside a CTE, since the table had
+                    no unique ID.
+                </li>
+
+                <li>
+                    Verified the results before deleting anything.
+                    My first check on a few columns flagged rows that
+                    were not real duplicates, so I partitioned on
+                    every column and re-checked individual companies.
+                </li>
+
+                <li>
+                    Standardized spellings and formats so values
+                    group correctly.
+                </li>
+
+                <li>
+                    Handled NULL and blank values.
+                </li>
+
+                <li>
+                    Removed an irrelevant column from the staging
+                    table only.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <h3>Part 2: Exploratory Analysis</h3>
+
+            <ul>
+
+                <li>
+                    Checked the maximum layoffs and percentages, and
+                    reviewed companies that laid off 100% of their
+                    staff by funds raised.
+                </li>
+
+                <li>
+                    Totaled layoffs by company, industry, country,
+                    year and funding stage.
+                </li>
+
+                <li>
+                    Found the date range of the data, with layoffs
+                    concentrated in the COVID era.
+                </li>
+
+                <li>
+                    Built a rolling monthly total using a CTE and
+                    SUM() OVER (ORDER BY ...).
+                </li>
+
+                <li>
+                    Ranked the top 5 companies and top 5 industries
+                    per year using DENSE_RANK() and PARTITION BY,
+                    filtered through a second CTE.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="modal-section">
+
+            <h3>What I Learned</h3>
+
+            <ul>
+
+                <li>
+                    Always work on a copy, never on the raw data.
+                </li>
+
+                <li>
+                    Verify results before acting on them.
+                </li>
+
+                <li>
+                    CTEs and window functions make multi-step
+                    analysis easier to read and debug.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!--
+        To add findings later, copy this block and fill it from your query results:
+
+        <div class="modal-section">
+            <h3>Key Insights</h3>
+            <ul>
+                <li>Company with the most layoffs: ...</li>
+                <li>Most affected industry: ...</li>
+                <li>Peak year: ...</li>
+            </ul>
+        </div>
+        -->
+
+
+        <!--
+        Once your SQL repo is on GitHub, remove these comment marks and add your link:
+
+        <div class="modal-section">
+            <h3>Code</h3>
+            <p>
+                <a
+                    href="https://github.com/fathima-97/YOUR-REPO"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    View the SQL scripts on GitHub
+                </a>
+            </p>
+        </div>
+        -->
+
+
+        <div class="modal-section">
+
+            <h3>Tools</h3>
+
+            <div class="modal-tags">
+
+                <span>MySQL</span>
+                <span>MySQL Workbench</span>
+                <span>CTEs</span>
+                <span>Window Functions</span>
+                <span>Aggregations</span>
+                <span>Data Cleaning</span>
+                <span>EDA</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- To add screenshots later:
+        <div class="project-gallery">
+            <img src="media/layoffs_rolling_total.png" alt="Rolling total of layoffs">
+            <img src="media/layoffs_top5.png" alt="Top 5 companies per year">
+        </div>
+        -->
+
+
+        <button
+            class="modal-bottom-close"
+            onclick="closeModal('sqlLayoffsModal')"
+        >
+            Close Case Study
+        </button>
+
+    </div>
+
+</div>
+
+
+
 <!-- ===========================
 BIG DATA MODAL
 =========================== -->
@@ -988,16 +1264,6 @@ BIG DATA MODAL
                 <span>Data Analytics</span>
 
             </div>
-
-        </div>
-
-
-        <div class="project-gallery">
-
-            <img
-                src="images/big-data.jpg"
-                alt="Big Data Analytics Project"
-            >
 
         </div>
 
@@ -1210,11 +1476,21 @@ CONTACT
         </a>
 
         <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/fathima-noorain-3b643a2a8"
             target="_blank"
+            rel="noopener"
             class="btn-outline"
         >
             LinkedIn
+        </a>
+
+        <a
+            href="https://github.com/fathima-97"
+            target="_blank"
+            rel="noopener"
+            class="btn-outline"
+        >
+            GitHub
         </a>
 
     </div>
